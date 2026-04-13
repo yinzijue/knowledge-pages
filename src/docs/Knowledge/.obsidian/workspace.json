@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3e18336b72272a72",
+        "id": "4ba7f8d72168b4e8",
         "type": "tabs",
         "children": [
           {
-            "id": "2850bfe87d6863bd",
+            "id": "fe26b68a485f3186",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -147,16 +147,6 @@
             }
           },
           {
-            "id": "13f623bfbbf2b5c7",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
-            }
-          },
-          {
             "id": "1c1e8eed4c6a81b9",
             "type": "leaf",
             "state": {
@@ -165,9 +155,19 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
+          },
+          {
+            "id": "a9a4a90b9bb4f933",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -187,7 +187,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cae51a6faf93b2dd",
+  "active": "1c1e8eed4c6a81b9",
   "lastOpenFiles": [
     "测试方向/自动化测试/UI自动化/元素定位.md",
     "测试方向/自动化测试/UI自动化/元素定位策略.md",
