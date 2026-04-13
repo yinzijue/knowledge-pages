@@ -1,0 +1,15 @@
+{
+    "name": "vuepress-plugin-markmap-convert",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "vuepress dev docs",
+        "build": "vuepress build docs"
+    },
+    "dependencies": {
+        "vuepress": "2.0.0-rc.14",
+        "vuepress-theme-hope": "2.0.0-rc.53"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0"
+    }
+}

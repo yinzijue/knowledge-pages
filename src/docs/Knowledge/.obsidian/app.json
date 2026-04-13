@@ -1,0 +1,11 @@
+{
+  "promptDelete": false,
+  "showLineNumber": true,
+  "rightToLeft": false,
+  "livePreview": false,
+  "trashOption": "none",
+  "newFileLocation": "current",
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "preview",
+  "uriCallbacks": false
+}

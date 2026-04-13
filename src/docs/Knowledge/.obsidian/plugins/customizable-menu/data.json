@@ -1,0 +1,10 @@
+{
+  "menuCommands": [
+    {
+      "name": "Markmind: 切换为Markdown或思维导图模式",
+      "id": "obsidian-markmind:Toggle to markdown or mindmap",
+      "icon": "cast"
+    }
+  ],
+  "hideTitles": []
+}
