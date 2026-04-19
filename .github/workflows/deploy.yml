@@ -15,20 +15,22 @@ jobs:
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
       
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '25'  # 使用 LTS 版本
+          cache: 'pnpm'  # 启用缓存
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10.33.0  # 指定 pnpm 版本
-          run_install: true  # 改为 false，手动控制安装
+          run_install: false  # 改为 false，手动控制安装
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24.9.0  # 使用 LTS 版本
-          cache: 'pnpm'  # 启用缓存
+      
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile  # 正确的命令
+        run: pnpm install
 
       - name: Build site
         run: pnpm run docs:build
