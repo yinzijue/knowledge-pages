@@ -14,25 +14,28 @@ jobs:
         with:
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 9  # 指定 pnpm 版本
+          run_install: true  # 改为 false，手动控制安装
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: 24.9.0
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v5
-        with:
-          node-version: 10.33.0
+          node-version: 24.9.0  # 使用 LTS 版本
+          cache: 'pnpm'  # 启用缓存
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install --frozen-lockfile  # 正确的命令
 
       - name: Build site
         run: pnpm run docs:build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4  # 升级到 v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./src/.vuepress/dist
+          force_orphan: true  # 推荐添加，保持仓库干净
