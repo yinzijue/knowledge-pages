@@ -1,4 +1,3 @@
-import path from 'path';
 import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";
 import theme from "./theme.js";
@@ -30,28 +29,26 @@ export default defineUserConfig({
   // shouldPrefetch: false,
   bundler: viteBundler({
     viteOptions: {
-      build: {
-        rollupOptions: {
+      optimizeDeps: {
+        esbuildOptions: {
           plugins: [
             {
               name: 'fix-open-color-json',
-              resolveId(id) {
-                if (id.includes('open-color')) {
-                  return id;
-                }
+              setup(build) {
+                build.onLoad({ filter: /open-color\.json$/ }, async (args) => {
+                  // 使用 fs 读取文件内容（esbuild 环境支持）
+                  const fs = await import('fs/promises');
+                  const content = await fs.readFile(args.path, 'utf-8');
+                  return {
+                    contents: `export default ${content}`,
+                    loader: 'js',
+                  };
+                });
               },
-              load(id) {
-                if (id.includes('open-color/open-color.json')) {
-                  // 直接导出 JSON 对象
-                  const fs = require('fs');
-                  const json = JSON.parse(fs.readFileSync(id, 'utf-8'));
-                  return `export default ${JSON.stringify(json)}`;
-                }
-              }
-            }
-          ]
-        }
-      }
-    }
+            },
+          ],
+        },
+      },
+    },
   }),
 });
