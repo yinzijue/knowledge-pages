@@ -34,7 +34,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile
       
       - name: Build site
-        run: pnpm run build
+        run: pnpm run docs:build
 
       - name: Create .nojekyll file
         run: touch dist/.nojekyll
