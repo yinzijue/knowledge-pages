@@ -27,28 +27,4 @@ export default defineUserConfig({
   theme,
   // 和 PWA 一起启用
   // shouldPrefetch: false,
-  bundler: viteBundler({
-    viteOptions: {
-      optimizeDeps: {
-        esbuildOptions: {
-          plugins: [
-            {
-              name: 'fix-open-color-json',
-              setup(build) {
-                build.onLoad({ filter: /open-color\.json$/ }, async (args) => {
-                  // 使用 fs 读取文件内容（esbuild 环境支持）
-                  const fs = await import('fs/promises');
-                  const content = await fs.readFile(args.path, 'utf-8');
-                  return {
-                    contents: `export default ${content}`,
-                    loader: 'js',
-                  };
-                });
-              },
-            },
-          ],
-        },
-      },
-    },
-  }),
 });
